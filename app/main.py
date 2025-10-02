@@ -1,19 +1,13 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
-from app.db import SessionLocal
-from app.routers import auth
+from app.db import get_db
+from app.routers import auth, exercises
 
 app = FastAPI(title="Athlos API")
 
 app.include_router(auth.router)
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+app.include_router(exercises.router)
 
 @app.get("/db-check")
 def db_check(db: Session = Depends(get_db)):
