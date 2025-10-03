@@ -88,7 +88,7 @@ Athlos/
 
 1. **Clone repo**
    ```
-   git clone https://github.com/<your-username>/Athlos.git
+   git clone https://github.com/GiorgiBokuchava/Athlos.git
    cd Athlos
    ```
 
@@ -192,3 +192,4 @@ docker compose exec backend python -m app.seed_exercises
 - Passwords hashed with bcrypt (never stored in plain text).
 
 - Protected endpoints require `Authorization: Bearer <token>`.
+
