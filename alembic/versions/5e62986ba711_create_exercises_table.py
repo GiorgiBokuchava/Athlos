@@ -1,7 +1,7 @@
 """create exercises table
 
 Revision ID: 5e62986ba711
-Revises: 993a3faeefdd
+Revises: 78caafc634e8
 Create Date: 2025-10-02 15:57:20.078944
 
 """
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision: str = '5e62986ba711'
-down_revision: Union[str, Sequence[str], None] = '993a3faeefdd'
+down_revision: Union[str, Sequence[str], None] = '78caafc634e8'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
