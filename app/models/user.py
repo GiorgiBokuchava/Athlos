@@ -13,6 +13,9 @@ class User(Base):
     password_hash = Column(String, nullable=False)
 
     plans = relationship("WorkoutPlan", back_populates="user", cascade="all, delete-orphan")
+    workout_logs = relationship("WorkoutLog", back_populates="user", cascade="all, delete-orphan")
+    weight_logs = relationship("WeightLog", back_populates="user", cascade="all, delete-orphan")
+    goals = relationship("Goal", back_populates="user", cascade="all, delete-orphan")
 
     @staticmethod
     def hash_password(password: str) -> str:
