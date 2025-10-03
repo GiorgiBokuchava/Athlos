@@ -1,6 +1,6 @@
 ﻿# Athlos 🏋️
 
-A RESTful API built with FastAPI for managing workout plans, tracking fitness goals, and guiding workout sessions. Implements authentication, predefined exercises, personalized plans, tracking, workout mode, and comes with Docker support for easy deployment.
+A RESTful API built with FastAPI for managing workout plans, tracking fitness goals, and guiding workout sessions. Implements authentication, predefined exercises, personalized plans, tracking, and workout mode.
 
 ## ✨ Features
 
@@ -10,7 +10,6 @@ A RESTful API built with FastAPI for managing workout plans, tracking fitness go
 - **Tracking & Goals** – Log workouts, track weight, set fitness goals.
 - **Workout Mode** – Guided session with step-by-step exercise progression.
 - **Swagger Docs** – Interactive API documentation at `/docs`.
-- **Dockerized** – One command to spin up backend + PostgreSQL.
 
 ## 📂 Project Structure
 
@@ -25,8 +24,6 @@ Athlos/
 │   ├── db.py             # Database connection
 │   ├── config.py         # Settings loader
 │   └── main.py           # FastAPI entrypoint
-├── Dockerfile
-├── docker-compose.yml
 ├── requirements.txt
 ├── .env.example
 └── README.md
@@ -83,43 +80,6 @@ Athlos/
    ```
 
    Docs → http://127.0.0.1:8000/docs
-
-## 🐳 Running with Docker
-
-1. **Clone repo**
-   ```
-   git clone https://github.com/GiorgiBokuchava/Athlos.git
-   cd Athlos
-   ```
-
-2. **Copy `.env.example` to `.env`**
-   ```
-   cp .env.example .env
-   ```
-
-   Default values:  
-   - `DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/athlos`  
-   - `JWT_SECRET=your_jwt_secret_key`
-
-   Works with the bundled Postgres container (`db`).  
-   Or point `DATABASE_URL` to your own PostgreSQL server.
-
-3. **Build and run**
-   ```
-   docker compose up --build
-   ```
-
-   Runs:  
-   - `backend` → FastAPI at http://localhost:8000  
-   - `db` → PostgreSQL at localhost:5432
-
-4. **Seed exercises**
-   ```
-   docker compose exec backend python -m app.seed_exercises
-   ```
-
-5. **Access Swagger**  
-   👉 http://localhost:8000/docs
 
 ## 📖 API Overview
 
@@ -181,15 +141,9 @@ Run locally:
 python -m app.seed_exercises
 ```
 
-Run inside Docker:  
-```
-docker compose exec backend python -m app.seed_exercises
-```
-
 ## 🔒 Security
 
 - JWT-based authentication.
 - Passwords hashed with bcrypt (never stored in plain text).
 
 - Protected endpoints require `Authorization: Bearer <token>`.
-
